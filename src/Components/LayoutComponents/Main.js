@@ -4,25 +4,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Label, { Orientation } from 'react-native-label';
-import { ScreenContainer } from 'react-native-screens';
 
-export const Main = ({ navigation }) => {
+const Main = ({ navigation }) => {
   return (
-    <ScreenContainer style={styles.main}>
+    <View style={styles.main}>
       <TouchableHighlight
         activeOpacity={0.8}
         underlayColor="rgb(250, 250, 250)"
         style={{ borderRadius: 15 }}
-        onPress={() => navigation.push('Games')}>
+        onPress={() => navigation.navigate('Home')}>
         <View style={styles.fitContents}>
           <Label
-            style={styles.label}
             orientation={Orientation.BOTTOM_RIGHT}
             containerStyle={{}}
-            style={{
-              fontSize: 20,
-              // padding: 4,
-            }}
+            style={{ fontSize: 20 }}
             title="Games"
             color="#f77"
             extent={0}
@@ -103,11 +98,11 @@ export const Main = ({ navigation }) => {
           </Label>
         </View>
       </TouchableHighlight>
-    </ScreenContainer>
+    </View>
   );
 };
 
-// export default Main;
+export default Main;
 const styles = StyleSheet.create({
   main: {
     display: 'flex',
