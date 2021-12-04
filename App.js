@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Label, { Orientation } from 'react-native-label';
@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
 } from 'react-native';
+
 const Stack = createNativeStackNavigator();
 const Header = () => {
   return (
@@ -31,7 +32,49 @@ const Header = () => {
     </View>
   );
 };
-const Home = ({ navigation }) => {
+function Home({ navigation }) {
+  const GamesList = [
+    { Title: 'Forza Horizon 5', Reviews: 5.6, Rating: '8+', Img: fH5() },
+    {
+      Title: 'Sekiro Shadows Die Twice',
+      Reviews: 7.4,
+      Rating: '15+',
+      Img: sekiroSdT(),
+    },
+    {
+      Title: 'Devil May Cry 5',
+      Reviews: 8.4,
+      Rating: '18+',
+      Img: dMc5(),
+    },
+    {
+      Title: 'Nier Automata',
+      Reviews: 7.3,
+      Rating: '18+',
+      Img: nierAutomata(),
+    },
+    {
+      Title: 'Far Cry 5',
+      Reviews: 7.7,
+      Rating: '14+',
+      Img: farC5(),
+    },
+  ];
+  function fH5() {
+    return require('./src/Assets/Images/Games/forza_horizon_5.png');
+  }
+  function sekiroSdT() {
+    return require('./src/Assets/Images/Games/sekiro.jpg');
+  }
+  function dMc5() {
+    return require('./src/Assets/Images/Games/dmc5.jpg');
+  }
+  function farC5() {
+    return require('./src/Assets/Images/Games/farcry5.jpg');
+  }
+  function nierAutomata() {
+    return require('./src/Assets/Images/Games/nier_automata.jpg');
+  }
   return (
     <View style={styles.rootContainer}>
       <ScrollView
@@ -44,7 +87,12 @@ const Home = ({ navigation }) => {
             activeOpacity={0.8}
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
-            onPress={() => navigation.navigate('Games')}>
+            onPress={() =>
+              navigation.navigate('Games', {
+                GamesList: GamesList,
+                DataType: 'GamesList',
+              })
+            }>
             <View style={styles.fitContents}>
               <Label
                 orientation={Orientation.BOTTOM_RIGHT}
@@ -147,7 +195,7 @@ const Home = ({ navigation }) => {
       </View>
     </View>
   );
-};
+}
 const App = () => {
   return (
     <NavigationContainer>
@@ -184,8 +232,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
-    padding: 20,
+    // alignSelf: 'center',
+    // padding: 20,
   },
   gamesIcon: {
     display: 'flex',
@@ -204,7 +252,9 @@ const styles = StyleSheet.create({
     borderRadius: 15,
   },
   fitContents: {
-    margin: 5,
+    // margin: 5,
+    marginHorizontal: 5,
+    marginVertical: 5,
   },
   header: {
     display: 'flex',
