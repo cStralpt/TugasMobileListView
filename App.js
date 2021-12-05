@@ -75,15 +75,128 @@ function Home({ navigation }) {
   function nierAutomata() {
     return require('./src/Assets/Images/Games/nier_automata.jpg');
   }
+  function venomLetTBC() {
+    return require('./src/Assets/Images/Movies/venom.png');
+  }
+  function blackWidow() {
+    return require('./src/Assets/Images/Movies/black_widow.jpg');
+  }
+  function dunE() {
+    return require('./src/Assets/Images/Movies/dune.jpg');
+  }
+  function jokeR() {
+    return require('./src/Assets/Images/Movies/joker.jpg');
+  }
+  function godZilla() {
+    return require('./src/Assets/Images/Movies/godzilla.jpg');
+  }
+  function johnWick() {
+    return require('./src/Assets/Images/Movies/john_wick.jpg');
+  }
+  function jurassicP() {
+    return require('./src/Assets/Images/Movies/jurassic_park.jpg');
+  }
+  function LordOfTR() {
+    return require('./src/Assets/Images/Movies/lord_of_the_rings.jpg');
+  }
+  function pikachuTM() {
+    return require('./src/Assets/Images/Movies/pikachu_the_movie.jpg');
+  }
+  function starWars() {
+    return require('./src/Assets/Images/Movies/starwars.jpg');
+  }
+  function theLionK() {
+    return require('./src/Assets/Images/Movies/the_lion_king.jpg');
+  }
+  function theWolverine() {
+    return require('./src/Assets/Images/Movies/the_wolverine.jpg');
+  }
 
   const MoviesList = [
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
-    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    {
+      Title: 'Venom let There be Carnage',
+      Reviews: 7.8,
+      Rating: '17+',
+      Released: '2018',
+      Foster: venomLetTBC(),
+    },
+    {
+      Title: 'Black Widow',
+      Reviews: 7.7,
+      Rating: '14+',
+      Released: '2021',
+      Foster: blackWidow(),
+    },
+    {
+      Title: 'Dune',
+      Reviews: 6.8,
+      Rating: '15+',
+      Released: '2021',
+      Foster: dunE(),
+    },
+    {
+      Title: 'Joker',
+      Reviews: 8.8,
+      Rating: '15+',
+      Released: '2020',
+      Foster: jokeR(),
+    },
+    {
+      Title: 'Godzilla',
+      Reviews: 7.8,
+      Rating: '12+',
+      Released: '2020',
+      Foster: godZilla(),
+    },
+    {
+      Title: 'John Wick',
+      Reviews: 9.8,
+      Rating: '17+',
+      Released: '2017',
+      Foster: johnWick(),
+    },
+    {
+      Title: 'Jurassic Park',
+      Reviews: 6.8,
+      Rating: '13+',
+      Released: '2016',
+      Foster: jurassicP(),
+    },
+    {
+      Title: 'Lord Of The Rings',
+      Reviews: 7.9,
+      Rating: '13+',
+      Released: '2007',
+      Foster: LordOfTR(),
+    },
+    {
+      Title: 'Pikachu The Movie',
+      Reviews: 5.8,
+      Rating: '12+',
+      Released: '2019',
+      Foster: pikachuTM(),
+    },
+    {
+      Title: 'Star Wars',
+      Reviews: 6.8,
+      Rating: '13+',
+      Released: '2019',
+      Foster: starWars(),
+    },
+    {
+      Title: 'The Lion King',
+      Reviews: 8.9,
+      Rating: '12+',
+      Released: '2019',
+      Foster: theLionK(),
+    },
+    {
+      Title: 'The Wolverine',
+      Reviews: 7.6,
+      Rating: '17+',
+      Released: '2006',
+      Foster: theWolverine(),
+    },
   ];
   return (
     <View style={styles.rootContainer}>

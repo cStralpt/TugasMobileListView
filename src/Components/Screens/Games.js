@@ -30,15 +30,12 @@ export default function Games({ route }) {
   const RenderMoviesList = ({ item }) => (
     <View style={styles.moviesItem}>
       <View style={styles.fosterContainer}>
-        <Image
-          style={styles.foster}
-          source={require('../../Assets/Images/Movies/avengers.jpg')}
-        />
+        <Image style={styles.foster} source={item.Foster} />
       </View>
       <View style={styles.movieItemData}>
         <Text style={styles.mTitle}>{item.Title}</Text>
         <View style={styles.ratRev}>
-          <Text style={styles.mReleased}>2019</Text>
+          <Text style={styles.mReleased}>{item.Released}</Text>
           <View style={styles.ratRevCont}>
             <Text style={styles.mRev}>Reviews: {item.Reviews}</Text>
             <Text style={styles.Dot}>.</Text>
