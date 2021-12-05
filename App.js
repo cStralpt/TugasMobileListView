@@ -75,6 +75,16 @@ function Home({ navigation }) {
   function nierAutomata() {
     return require('./src/Assets/Images/Games/nier_automata.jpg');
   }
+
+  const MoviesList = [
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+    { Title: 'Venom let There be Carnage', Reviews: 7.8, Rating: '17+' },
+  ];
   return (
     <View style={styles.rootContainer}>
       <ScrollView
@@ -116,7 +126,12 @@ function Home({ navigation }) {
             activeOpacity={0.8}
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
-            onPress={() => navigation.navigate('Games')}>
+            onPress={() =>
+              navigation.navigate('Games', {
+                MoviesList: MoviesList,
+                DataType: 'MoviesList',
+              })
+            }>
             <View style={styles.fitContents}>
               <Label
                 orientation={Orientation.BOTTOM_RIGHT}
@@ -140,7 +155,12 @@ function Home({ navigation }) {
             activeOpacity={0.8}
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
-            onPress={() => navigation.navigate('Games')}>
+            onPress={() =>
+              navigation.navigate('Games', {
+                Recommendation: 'das',
+                DataType: 'Recommendation',
+              })
+            }>
             <View style={styles.fitContents}>
               <Label
                 orientation={Orientation.BOTTOM_RIGHT}
