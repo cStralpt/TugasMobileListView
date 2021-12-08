@@ -7,6 +7,6 @@
   <img src="ContentsList.png" alt="Girl in a jacket" width="235">
   </div>
   <div>
-    <h1>aowkawok</h1>
+    <h6>aowkawok</h6>
   </div>
 </div>
