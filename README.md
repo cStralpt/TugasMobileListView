@@ -1,6 +1,7 @@
 <div>
   <div>
     <h1>Tugas Mobile</h1>
+    <h1 style="color:blue;">A Blue Heading</h1>
   </div>
   <div>
   <img src="HomeScreen.png" alt="Girl in a jacket" width="235">
