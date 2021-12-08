@@ -1,9 +1,21 @@
 import * as React from 'react';
-import { Text, View, FlatList, StyleSheet, Image } from 'react-native';
+import {
+  Text,
+  View,
+  FlatList,
+  StyleSheet,
+  Image,
+  SectionList,
+  StatusBar,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import Fa from 'react-native-vector-icons/FontAwesome';
 import Ionic from 'react-native-vector-icons/Ionicons';
-export default function Games({ route }) {
-  const { GamesList, MoviesList } = route.params;
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+export default function Contents({ route }) {
+  const { GamesList, MoviesList, AllContents } = route.params;
   if (route.params.DataType == 'MoviesList') {
     dynamicStylesValue(20);
     console.log('Movies');
@@ -45,6 +57,26 @@ export default function Games({ route }) {
       </View>
       <Ionic style={styles.mPlayBtnIcon} name="play-circle-outline" />
       <View style={[styles.mPlayBtnIcon, styles.playBtnPrettier]} />
+    </View>
+  );
+  const RenderAllContents = ({ item }) => (
+    <View>
+      <Text
+        style={{
+          color: '#c4c572',
+          backgroundColor: 'rgba(255, 255, 119,.1)',
+          margin: 10,
+          padding: 20,
+          borderRadius: 50,
+          borderWidth: 5,
+          textAlign: 'center',
+          textAlignVertical: 'center',
+          fontWeight: 'bold',
+          borderColor: '#f77',
+          fontSize: 25,
+        }}>
+        {item.Title}
+      </Text>
     </View>
   );
   if (route.params.DataType == 'GamesList') {
@@ -92,9 +124,82 @@ export default function Games({ route }) {
             </View>
           </View>
           <View style={styles.recBtnCont}>
-            <Text style={styles.recBtn}>BUTTON</Text>
+            <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: 15 }}>
+              <Text style={styles.recBtn}>WATCH</Text>
+            </TouchableOpacity>
           </View>
         </View>
+        <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: 15 }}>
+          <Fa
+            style={{
+              position: 'absolute',
+              right: 0,
+              bottom: 0,
+              backgroundColor: '#ff7',
+              padding: 20,
+              textAlign: 'center',
+              textAlignVertical: 'center',
+              // borderRadius: 50,
+            }}
+            name="random"
+            size={30}
+          />
+        </TouchableOpacity>
+      </View>
+    );
+  } else if (route.params.DataType == 'DataDiri') {
+    return (
+      <View style={styles.portContainer}>
+        <View style={styles.headerPort}>
+          <Text style={styles.name}>Satria Alipatullah</Text>
+          <Text style={styles.umur}>18 Tahun</Text>
+        </View>
+        <View style={styles.mainPort}>
+          <Image
+            source={require('../../Assets/Images/DataDiri/Mr.Stralpt.jpg')}
+            style={styles.personImg}
+          />
+          <View style={styles.moreInfoCont}>
+            <View style={styles.fitMe}>
+              <View style={styles.alNpm}>
+                <Text style={styles.alNpm}>NPM: 200602090</Text>
+                <Text style={styles.alamat}>
+                  Alamat: Gereneng Timur, Sakra TImur
+                </Text>
+              </View>
+            </View>
+            <View style={styles.about}>
+              <Text style={styles.about}>
+                askdjhas dkjahs klashfkahsd flkjadshf lkasdhflkasdfhj{' '}
+              </Text>
+            </View>
+            <View style={styles.sosMedAcc}>
+              <Fa
+                style={[styles.gReviesIcon, styles.sosMedIcon]}
+                name="instagram"
+              />
+              <Fa
+                style={[styles.gReviesIcon, styles.sosMedIcon]}
+                name="whatsapp"
+              />
+              <Fa
+                style={[styles.gReviesIcon, styles.sosMedIcon]}
+                name="telegram"
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  } else if (route.params.DataType == 'AllContents') {
+    return (
+      <View style={styles.container}>
+        <FlatList
+          style={styles.fListAC}
+          data={AllContents}
+          showsHorizontalScrollIndicator={true}
+          renderItem={RenderAllContents}
+        />
       </View>
     );
   }
@@ -296,6 +401,7 @@ const styles = StyleSheet.create({
     // borderWidth: 3,
     margin: 20,
     flexGrow: 1,
+    position: 'relative',
   },
   infoContainer: {
     display: 'flex',
@@ -337,6 +443,7 @@ const styles = StyleSheet.create({
     paddingRight: 50,
     borderRadius: 100,
     fontWeight: 'bold',
+    textAlignVertical: 'center',
     // fontSize: 30,
   },
   recRevC: {
@@ -358,6 +465,84 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 3,
   },
+  portContainer: {
+    display: 'flex',
+    height: '100%',
+    borderWidth: 3,
+    padding: 20,
+  },
+  headerPort: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 7,
+    alignItems: 'center',
+  },
+  name: {
+    color: '#f77',
+    fontWeight: 'bold',
+    fontSize: 25,
+  },
+  umur: {
+    backgroundColor: '#f77',
+    color: 'white',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    padding: 10,
+  },
+  mainPort: {
+    display: 'flex',
+    marginTop: 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    // borderWidth: 3,
+    flexGrow: 1,
+    backgroundColor: 'white',
+    borderRadius: 10,
+  },
+  personImg: {
+    display: 'flex',
+    width: '40%',
+    height: '60%',
+    flexGrow: 1,
+    borderRadius: 10,
+  },
+  moreInfoCont: {
+    display: 'flex',
+    // borderWidth: 3,
+    flexGrow: 1,
+    padding: 20,
+  },
+  alNpm: {
+    color: '#f77',
+    fontSize: 20,
+    // fontFamily: 'times new roman',
+  },
+  fitMe: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  about: {
+    marginTop: 10,
+    fontSize: 15,
+  },
+  sosMedAcc: {
+    display: 'flex',
+    alignItems: 'flex-end',
+    // borderWidth: 3,
+    flexGrow: 1,
+  },
+  sosMedIcon: {
+    marginVertical: 3,
+  },
+  alamat: {
+    color: '#f77',
+    fontFamily: 'times new roman',
+    // fontSize: 20,
+  },
   // playBtnPrettier: {
   //   width: 120,
   //   height: 120,
@@ -367,4 +552,21 @@ const styles = StyleSheet.create({
   //   left: '38%',
   //   bottom: '43%',
   // },
+  container22: {
+    flex: 1,
+    paddingTop: StatusBar.currentHeight,
+    marginHorizontal: 16,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 24,
+  },
 });

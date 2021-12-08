@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Label, { Orientation } from 'react-native-label';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Fa from 'react-native-vector-icons/FontAwesome';
-import Games from './src/Components/Screens/Games';
+import Contents from './src/Components/Screens/ContentsScreen';
 import {
   Image,
   SafeAreaView,
@@ -16,7 +16,7 @@ import {
   TouchableHighlight,
 } from 'react-native';
 
-const Stack = createNativeStackNavigator();
+const ContentStack = createNativeStackNavigator();
 const Header = () => {
   return (
     <View style={styles.header}>
@@ -198,6 +198,58 @@ function Home({ navigation }) {
       Foster: theWolverine(),
     },
   ];
+  const allContents = [
+    {
+      Title: 'Venom let There be Carnage',
+    },
+    {
+      Title: 'Black Widow',
+    },
+    {
+      Title: 'Dune',
+    },
+    {
+      Title: 'Joker',
+    },
+    {
+      Title: 'Godzilla',
+    },
+    {
+      Title: 'John Wick',
+    },
+    {
+      Title: 'Jurassic Park',
+    },
+    {
+      Title: 'Lord Of The Rings',
+    },
+    {
+      Title: 'Pikachu The Movie',
+    },
+    {
+      Title: 'Star Wars',
+    },
+    {
+      Title: 'The Lion King',
+    },
+    {
+      Title: 'The Wolverine',
+    },
+    { Title: 'Forza Horizon 5' },
+    {
+      Title: 'Sekiro Shadows Die Twice',
+    },
+    {
+      Title: 'Devil May Cry 5',
+    },
+    {
+      Title: 'Nier Automata',
+    },
+    {
+      Title: 'Far Cry 5',
+    },
+  ];
+
   return (
     <View style={styles.rootContainer}>
       <ScrollView
@@ -211,7 +263,7 @@ function Home({ navigation }) {
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
             onPress={() =>
-              navigation.navigate('Games', {
+              navigation.navigate('Contents', {
                 GamesList: GamesList,
                 DataType: 'GamesList',
               })
@@ -240,7 +292,7 @@ function Home({ navigation }) {
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
             onPress={() =>
-              navigation.navigate('Games', {
+              navigation.navigate('Contents', {
                 MoviesList: MoviesList,
                 DataType: 'MoviesList',
               })
@@ -269,7 +321,7 @@ function Home({ navigation }) {
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
             onPress={() =>
-              navigation.navigate('Games', {
+              navigation.navigate('Contents', {
                 Recommendation: 'das',
                 DataType: 'Recommendation',
               })
@@ -297,7 +349,12 @@ function Home({ navigation }) {
             activeOpacity={0.8}
             underlayColor="rgb(250, 250, 250)"
             style={{ borderRadius: 15 }}
-            onPress={() => navigation.navigate('Games')}>
+            onPress={() =>
+              navigation.navigate('Contents', {
+                AllContents: allContents,
+                DataType: 'AllContents',
+              })
+            }>
             <View style={styles.fitContents}>
               <Label
                 orientation={Orientation.BOTTOM_RIGHT}
@@ -320,7 +377,12 @@ function Home({ navigation }) {
           activeOpacity={0.8}
           underlayColor="rgb(250, 250, 250)"
           style={{ borderRadius: 15 }}
-          onPress={() => navigation.navigate('Games')}>
+          onPress={() =>
+            navigation.navigate('Contents', {
+              DataDiri: 'awokawo',
+              DataType: 'DataDiri',
+            })
+          }>
           <View>
             <Fa style={styles.user} name="user" />
           </View>
@@ -332,12 +394,12 @@ function Home({ navigation }) {
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <ContentStack.Navigator
         initialRouteName="Home"
         screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Games" component={Games} />
-      </Stack.Navigator>
+        <ContentStack.Screen name="Home" component={Home} />
+        <ContentStack.Screen name="Contents" component={Contents} />
+      </ContentStack.Navigator>
     </NavigationContainer>
   );
 };
