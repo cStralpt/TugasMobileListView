@@ -1,4 +1,5 @@
 # Tugas Mobile
+<link rel="stylesheet" href="TML.css">
 <div>
   <img style="border-radius: 50px" src="HomeScreen.png" alt="Girl in a jacket" width="235">
   <img src="GamesScreen.png" alt="Girl in a jacket" width="235">
