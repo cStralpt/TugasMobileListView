@@ -4,7 +4,7 @@
     <h1>Tugas Mobile</h1>
   </div>
   <div>    
-  <h2>Home Screen</h2>
+  <h3>Home Screen</h3>
   <img src="HomeScreen.png" alt="Girl in a jacket" width="300">
   </div>
 <h3>Activity List</h3>
