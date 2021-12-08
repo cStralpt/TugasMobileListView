@@ -10,9 +10,12 @@
   <img src="ContentsList.png" alt="Girl in a jacket" width="235">
   </div>
 <ul>
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Milk</li>
+  <li>Home Screen</li>
+  <li>Games Screen</li>
+  <li>Movies Screen</li>
+  <li>Contents List Screen</li>
 </ul>
   
 <p>I will display &#65; &#66; &#67;</p>
+
+ ❎
