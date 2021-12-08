@@ -1,4 +1,3 @@
-<meta charset="UTF-8">
 <div>
   <div>
     <h1>Tugas Mobile</h1>
