@@ -1,4 +1,7 @@
 # Tugas Mobile
-<div class="container" style="background-color: black">
+<div class="container" style="display: flex,flex-direction: row">
   <img src="HomeScreen.png" alt="Girl in a jacket" width="300">
+  <img src="GamesScreen.png" alt="Girl in a jacket" width="300">
+  <img src="MoviesScreen.png" alt="Girl in a jacket" width="300">
+  <img src="AllContents.png" alt="Girl in a jacket" width="300">
  </div>
