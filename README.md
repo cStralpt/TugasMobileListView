@@ -1,3 +1,4 @@
+<meta charset="UTF-8">
 <div>
   <div>
     <h1>Tugas Mobile</h1>
@@ -13,3 +14,5 @@
   <li>Tea</li>
   <li>Milk</li>
 </ul>
+  
+<p>I will display &#65; &#66; &#67;</p>
